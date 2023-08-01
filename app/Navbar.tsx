@@ -25,31 +25,31 @@ const domains = [
   {
     name: "Technology",
     description: "Startups that aim to disrupt the status quo",
-    href: "#",
+    href: "/startups",
     icon: ChartPieIcon,
   },
   {
     name: "Medical",
     description: "High risers in the medical field",
-    href: "#",
+    href: "/startups",
     icon: HeartIcon,
   },
   {
     name: "Finance",
     description: "Companies that are changing the way we think about money",
-    href: "#",
+    href: "/startups",
     icon: CreditCardIcon,
   },
   {
     name: "Education",
     description: "Startups that are changing the way we learn",
-    href: "#",
+    href: "/startups",
     icon: AcademicCapIcon,
   },
   {
     name: "Other",
     description: "Startups that don't fit into any of the other categories",
-    href: "#",
+    href: "/startups",
     icon: ArrowPathIcon,
   },
 ];
@@ -71,7 +71,7 @@ export default function Navbar() {
         aria-label="Global"
       >
         <div className="flex lg:flex-1">
-          <a href="#" className="-m-1.5 p-1.5">
+          <a href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">WebCubator</span>
             <Image className="h-8 w-auto" src={WebCubatorLogo} alt="" />
           </a>
@@ -220,19 +220,13 @@ export default function Navbar() {
                   href="#"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
-                  Features
+                  Investors
                 </a>
                 <a
                   href="#"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
-                  Marketplace
-                </a>
-                <a
-                  href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                >
-                  Company
+                  Our Company
                 </a>
               </div>
               <div className="py-6">
