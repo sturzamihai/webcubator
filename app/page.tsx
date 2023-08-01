@@ -1,8 +1,13 @@
-import Image from "next/image";
-import LinkedInLogo from "@/public/icons/linkedin.svg";
-import Logo from "@/public/logo.png";
-import { signIn } from "next-auth/react";
+import ClientCarousel from "./ClientCarousel";
+import LandingSection from "./LandingSection";
+import TeamSection from "./TeamSection";
 
 export default function Example() {
-  return <></>;
+  return (
+    <>
+      <LandingSection />
+      <ClientCarousel />
+      <TeamSection />
+    </>
+  );
 }

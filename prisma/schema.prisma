@@ -55,3 +55,22 @@ model VerificationToken {
 
   @@unique([identifier, token])
 }
+
+enum Domain {
+  TECH
+  MEDICAL
+  FINANCE
+  EDUCATION
+  OTHER
+}
+
+model Startup {
+  id          String   @id @default(cuid())
+  name        String
+  description String
+  url         String
+  logo        String
+  location    String
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+}
