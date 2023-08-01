@@ -6,24 +6,24 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
-  url = env("DATABASE_URL")
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
   relationMode = "prisma"
 }
 
 model Account {
-  id                 String  @id @default(cuid())
-  userId             String
-  type               String
-  provider           String
-  providerAccountId  String
-  refresh_token      String?  @db.Text
-  access_token       String?  @db.Text
-  expires_at         Int?
-  token_type         String?
-  scope              String?
-  id_token           String?  @db.Text
-  session_state      String?
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
@@ -46,6 +46,9 @@ model User {
   image         String?
   accounts      Account[]
   sessions      Session[]
+
+  memberships StartupMember[]
+  investor    Investor?
 }
 
 model VerificationToken {
@@ -65,12 +68,53 @@ enum Domain {
 }
 
 model Startup {
-  id          String   @id @default(cuid())
+  id          String @id @default(cuid())
   name        String
+  slug        String @unique
   description String
+  domain      Domain
   url         String
   logo        String
   location    String
-  created_at  DateTime @default(now())
-  updated_at  DateTime @updatedAt
+
+  members StartupMember[]
+  tags    StartupTag[]
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+}
+
+model StartupTag {
+  id        String @id @default(cuid())
+  startupId String
+  name      String
+
+  startup Startup @relation(fields: [startupId], references: [id], onDelete: Cascade)
+}
+
+model StartupMember {
+  id         String   @id @default(cuid())
+  startupId  String
+  userId     String
+  role       String
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  startup Startup @relation(fields: [startupId], references: [id], onDelete: Cascade)
+  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Investor {
+  id String @id @default(cuid())
+
+  userId String @unique
+  user   User   @relation(fields: [userId], references: [id])
+
+  slug        String @unique
+  description String?
+  interest    Domain?
+  location    String?
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
 }
