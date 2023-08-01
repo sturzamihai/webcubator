@@ -70,11 +70,12 @@ export default function Navbar() {
         className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
         aria-label="Global"
       >
-        <div className="flex lg:flex-1">
+        <div className="flex lg:flex-1 items-center gap-2">
           <a href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">WebCubator</span>
             <Image className="h-8 w-auto" src={WebCubatorLogo} alt="" />
           </a>
+          <h3 className="font-semibold">WebCubator</h3>
         </div>
         <div className="flex lg:hidden">
           <button
@@ -192,7 +193,7 @@ export default function Navbar() {
                   {({ open }) => (
                     <>
                       <Disclosure.Button className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
-                        Product
+                        Startups
                         <ChevronDownIcon
                           className={classNames(
                             open ? "rotate-180" : "",
