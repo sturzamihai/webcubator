@@ -1,33 +1,35 @@
+import Image from "next/image";
+import MariaImage from "@/public/team/maria.jpeg"
+import AnaImage from "@/public/team/ana.jpeg"
+import RaresImage from "@/public/team/rares.jpeg"
+import MihaiImage from "@/public/team/mihai.jpeg"
+import DumiImage from "@/public/team/dumitrita.jpeg"
+
 const people = [
   {
     name: "Maria Halmaghi",
-    role: "???",
-    imageUrl:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+    role: "(Serious) CEO",
+    image: MariaImage
   },
   {
     name: "Rareș Dăscălescu",
-    role: "???",
-    imageUrl:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+    role: "Marketing Wizard",
+    image: RaresImage
   },
   {
     name: "Dumitrița Rogojinaru",
-    role: "???",
-    imageUrl:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+    role: "Legal Master",
+    image: DumiImage
   },
   {
     name: "Ana Ștefan",
-    role: "???",
-    imageUrl:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+    role: "Tech Savvy",
+    image: AnaImage
   },
   {
     name: "Mihai Sturza",
-    role: "???",
-    imageUrl:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+    role: "Machine Tamer",
+    image: MihaiImage
   },
 ];
 
@@ -50,10 +52,10 @@ export default function TeamSection() {
           {people.map((person) => (
             <li key={person.name}>
               <div className="flex items-center gap-x-6">
-                <img
+                <Image
                   className="h-16 w-16 rounded-full"
-                  src={person.imageUrl}
-                  alt=""
+                  src={person.image}
+                  alt={person.name + " profile picture"}
                 />
                 <div>
                   <h3 className="text-base font-semibold leading-7 tracking-tight text-gray-900">

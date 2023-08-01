@@ -14,7 +14,7 @@ export default function InvestorButton() {
   }
 
   return (
-    <a onClick={applyAsInvestor} className="border hover:border-green-500 transition-all rounded-md hover:cursor-pointer text-center text-gray-600 p-2 w-full mt-4">
+    <a href="/startups" className="border hover:border-green-500 transition-all rounded-md hover:cursor-pointer text-center text-gray-600 p-2 w-full mt-4">
       Continue as an investor
     </a>
   );
